@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="login_modal_open">로그인</button>
-    <button class="join_modal_open">회원가입</button>
+    <div id="header">
+        <button class="login_modal_open">로그인</button>
+        <button class="join_modal_open">회원가입</button>
+    </div>
 
     <div class="login_modal">
         <h3>로그인</h3>
         <input type="text" name="loginid" id="loginid" placeholder="아이디"> <br>
-        <input type="text" name="loginpassword" id="loginpassword" placeholder="비밀번호"> <br>
-        <button type="submit">로그인</button>
-        <button type="submit" class="login_modal_close">취소</button>
+        <input type="password" name="loginpassword" id="loginpassword" placeholder="비밀번호"> <br>
+        <button type="submit" class="login_submit">로그인</button>
+        <button type="reset" class="login_modal_close">취소</button>
     </div>
 
     <div class="join_modal">
@@ -37,6 +39,7 @@
     </div>
 
     <script src="js/join.js"></script>
+    <script src="js/login.js"></script>
     <script src="js/seong.js"></script>
 </body>
 </html>
