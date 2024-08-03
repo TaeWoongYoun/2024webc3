@@ -1,20 +1,6 @@
+<?php $conn = mysqli_connect('localhost', 'root', '', 'gwangju')?>
 <?php
 header('Content-Type: application/json');
-
-// 데이터베이스 연결 설정
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "gwangju";
-
-// 데이터베이스 연결
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// 연결 오류 확인
-if ($conn->connect_error) {
-    error_log("Connection failed: " . $conn->connect_error); // 오류 기록
-    die(json_encode(['success' => false, 'message' => '데이터베이스 연결 실패: ' . $conn->connect_error]));
-}
 
 // 입력 데이터 가져오기 및 SQL 인젝션 방지
 $userid = mysqli_real_escape_string($conn, $_POST['userid']);
@@ -29,11 +15,6 @@ $sql = "INSERT INTO users (role, username, userid, userpassword, token, apikey) 
 // 쿼리 실행 및 결과 확인
 if (mysqli_query($conn, $sql)) {
     echo json_encode(['success' => true]); // 성공적으로 실행되었을 때 JSON 응답
-} else {
-    error_log("Insert Error: " . mysqli_error($conn)); // 오류 기록
-    echo json_encode(['success' => false, 'message' => '회원가입에 실패했습니다: ' . mysqli_error($conn)]); // 오류 발생 시 JSON 응답
 }
 
-// 데이터베이스 연결 종료
-mysqli_close($conn);
 ?>

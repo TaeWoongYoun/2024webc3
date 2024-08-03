@@ -1,3 +1,4 @@
+<?php $conn = mysqli_connect('localhost', 'root', '', 'gwangju')?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -63,7 +64,6 @@
             formData.append('username', username);
             formData.append('userid', userid);
             formData.append('userpassword', userpassword);
-            formData.append('captcha', captcha);
 
             // 서버로 AJAX 요청 보내기
             fetch('http://localhost:8012/2024webc3/api/regist.php', {
@@ -77,18 +77,8 @@
                     alert('회원가입이 완료되었습니다.');
                     document.querySelector('.join_modal').style.display = 'none';
                     document.querySelector('.signupForm').reset();
-                } else {
-                    alert(data.message || '회원가입에 실패했습니다.');
                 }
             })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('회원가입 중 오류가 발생했습니다.');
-            });
-        });
-
-        document.querySelector('.refresh').addEventListener('click', function() {
-            document.getElementById('captchaImage').src = 'http://localhost:8012/2024webc3/api/generate_captcha.php?' + Date.now();
         });
     </script>
     <script src="seong.js"></script>
