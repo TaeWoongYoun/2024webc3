@@ -8,7 +8,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <button class="login_modal_open">로그인</button>
     <button class="join_modal_open">회원가입</button>
+
+    <div class="login_modal">
+        <h3>로그인</h3>
+        <input type="text" name="loginid" id="loginid" placeholder="아이디"> <br>
+        <input type="text" name="loginpassword" id="loginpassword" placeholder="비밀번호"> <br>
+        <button type="submit">로그인</button>
+        <button type="submit" class="login_modal_close">취소</button>
+    </div>
 
     <div class="join_modal">
         <h3>회원가입</h3>
@@ -21,13 +30,14 @@
                 <img src="image/캡차.png" alt="캡챠" id="captchaImage">
                 <button type="button" class="refresh">새로고침</button>
             </p>
-            <input type="text" id="captcha" placeholder="켑챠"> <br>
+            <input type="text" id="captcha" placeholder="캡챠"> <br>
             <button type="submit" class="join_submit">회원가입</button>
             <button type="reset" class="join_modal_close">취소</button>
         </form>
     </div>
 
     <script>
+        
         document.querySelector('.join_submit').addEventListener('click', function(event) {
             event.preventDefault(); // 폼 제출을 막습니다.
 
@@ -54,7 +64,7 @@
                 alert("비밀번호를 확인해주세요.");
                 return false;
             }
-            if (captcha != '2CCEX') { // 실제 캡챠 검증 로직이 필요합니다.
+            if (captcha != '2CCEX') {
                 alert("캡챠를 다시 확인해주세요.");
                 return false;
             }
@@ -77,6 +87,7 @@
                     alert('회원가입이 완료되었습니다.');
                     document.querySelector('.join_modal').style.display = 'none';
                     document.querySelector('.signupForm').reset();
+                    document.querySelector('.login_modal').style.display = 'block'
                 }
             })
         });

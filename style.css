@@ -3,7 +3,7 @@
     margin: 0;
 }
 
-.join_modal{
+.join_modal, .login_modal{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -13,12 +13,12 @@
     display: none;
 }
 
-.join_modal h3{
+.join_modal h3, .login_modal h3{
     text-align: center;
     line-height: 40px;
 }
 
-.join_modal input{
+.join_modal input, .login_modal input{
     padding: 5px 0 3px 10px;
     margin: 3px;
     border: 1px solid black;
