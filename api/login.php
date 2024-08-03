@@ -1,5 +1,5 @@
+<?php $conn = mysqli_connect('localhost', 'root', '', 'gwangju');?>
 <?php
-$conn = mysqli_connect('localhost', 'root', '', 'gwangju');
 header('Content-Type: application/json');
 
 // 입력 데이터 가져오기 및 SQL 인젝션 방지
@@ -25,8 +25,6 @@ if ($result && mysqli_num_rows($result) > 0) {
                 'token' => $token,
                 'apikey' => $user['apikey']
             ]);
-        } else {
-            echo json_encode(['success' => false, 'message' => '토큰 업데이트에 실패했습니다.']);
         }
     } else {
         echo json_encode(['success' => false, 'message' => '아이디 또는 패스워드를 확인하세요.']);
@@ -34,7 +32,4 @@ if ($result && mysqli_num_rows($result) > 0) {
 } else {
     echo json_encode(['success' => false, 'message' => '아이디 또는 패스워드를 확인하세요.']);
 }
-
-// 데이터베이스 연결 종료
-mysqli_close($conn);
 ?>

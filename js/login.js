@@ -38,10 +38,6 @@ document.querySelector('.login_submit').addEventListener('click', function(event
             document.getElementById('loginpassword').value = '';
         }
     })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('로그인 중 오류가 발생했습니다.');
-    });
 });
 
 function updateHeaderForLoggedInUser(username) {
@@ -49,8 +45,7 @@ function updateHeaderForLoggedInUser(username) {
     header.innerHTML = `
         <span>환영합니다, ${username}님</span>
         <button class="mypage_button">마이페이지</button>
-        <button class="logout_button">로그아웃</button>
-    `;
+        <button class="logout_button">로그아웃</button>`;
 
     document.querySelector('.logout_button').addEventListener('click', function() {
         localStorage.removeItem('username');
@@ -82,10 +77,6 @@ function checkLoginStatus() {
                 alert('다른 곳에서 로그인하였거나 인증 정보가 변경되었습니다.');
             }
         })
-        .catch(error => {
-            console.error('Error:', error);
-            localStorage.clear();
-        });
     }
 }
 
